@@ -1,4 +1,3 @@
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { mmkvStorage } from './storage';

@@ -53,7 +53,7 @@ const CustomerLogin: React.FC = () => {
 
     try {
       await customerLogin(phoneNumber);
-      // resetAndNavigate('ProductDashboard');
+      resetAndNavigate('ProductDashboard');
     } catch (error) {
       Alert.alert('Login Failed');
     } finally {
