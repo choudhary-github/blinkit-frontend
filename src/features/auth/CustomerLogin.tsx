@@ -52,8 +52,8 @@ const CustomerLogin: React.FC = () => {
     setLoading(true);
 
     try {
-      await customerLogin(phoneNumber);
-      resetAndNavigate('ProductDashboard');
+      const response = await customerLogin(phoneNumber);
+      response && resetAndNavigate('ProductDashboard');
     } catch (error) {
       Alert.alert('Login Failed');
     } finally {
