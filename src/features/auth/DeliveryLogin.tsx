@@ -5,6 +5,12 @@ import { deliveryLogin } from '@service/authService';
 import CustomSafeAreaView from '@components/global/CustomSafeAreaView';
 import { screenHeight } from '@utils/Scaling';
 import LottieView from 'lottie-react-native';
+import CustomText from '@components/ui/CustomText';
+import { Fonts } from '@utils/Constants';
+import CustomInput from '@components/ui/CustomInput';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { RFValue } from 'react-native-responsive-fontsize';
+import CustomButton from '@components/ui/CustomButton';
 
 const DeliveryLogin: FC = () => {
   const [email, setEmail] = useState('');
@@ -14,8 +20,8 @@ const DeliveryLogin: FC = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      await deliveryLogin(email, password);
-      resetAndNavigate('DeliveryDashboard');
+      const response = await deliveryLogin(email, password);
+      response && resetAndNavigate('DeliveryDashboard');
     } catch (error) {
       Alert.alert('Login Failed');
     } finally {
@@ -36,6 +42,54 @@ const DeliveryLogin: FC = () => {
               source={require('@assets/animations/delivery_man.json')}
             />
           </View>
+          <CustomText variant="h3" fontFamily={Fonts.Bold}>
+            Delivery Partner Portal
+          </CustomText>
+          <CustomText
+            variant="h6"
+            fontFamily={Fonts.SemiBold}
+            style={styles.text}>
+            Faster than Flash⚡
+          </CustomText>
+
+          <CustomInput
+            onChangeText={setEmail}
+            value={email}
+            left={
+              <Ionicons
+                name="mail-outline"
+                size={RFValue(18)}
+                color={'#F8890E'}
+                style={{ marginLeft: 10 }}
+              />
+            }
+            placeholder="Email"
+            inputMode="email"
+            right={false}
+          />
+          <CustomInput
+            onChangeText={setPassword}
+            value={password}
+            left={
+              <Ionicons
+                name="key-sharp"
+                size={RFValue(18)}
+                color={'#F8890E'}
+                style={{ marginLeft: 10 }}
+              />
+            }
+            placeholder="Password"
+            secureTextEntry
+            right={false}
+          />
+          <CustomButton
+            onPress={handleLogin}
+            title="Login"
+            disabled={
+              email.length === 0 || !email.includes('@') || password.length < 8
+            }
+            loading={loading}
+          />
         </View>
       </ScrollView>
     </CustomSafeAreaView>

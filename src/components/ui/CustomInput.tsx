@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 interface Props {
-  onClear: () => void;
+  onClear?: () => void;
   left: ReactNode;
   right?: boolean;
 }

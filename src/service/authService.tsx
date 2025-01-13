@@ -36,6 +36,7 @@ const deliveryLogin = async (email: string, password: string) => {
     const { setUser } = useAuthStore.getState();
 
     setUser(deliveryPartner);
+    return true;
   } catch (error) {
     Alert.alert('Login Failed');
     console.log(error);
