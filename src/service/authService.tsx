@@ -16,6 +16,7 @@ const customerLogin = async (phone: string) => {
     tokenStorage.set('refreshToken', refreshToken);
     const { setUser } = useAuthStore.getState();
     setUser(customer);
+    return true;
   } catch (error) {
     console.log(error);
   }
