@@ -10,27 +10,33 @@ const SearchBar = () => {
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.8}>
       <Ionicons name="search" color={Colors.text} size={RFValue(20)} />
+      <CustomText
+        variant="h6"
+        fontFamily={Fonts.Medium}
+        style={{ paddingLeft: 10 }}>
+        Search
+      </CustomText>
       <RollingBar
         interval={3000}
         defaultStyle={false}
         customStyle={styles.textContainer}>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search "sweets"
+          "sweets"
         </CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search "milk"
+          "milk"
         </CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search for aata, daal, coke
+          for aata, daal, coke
         </CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search "chips"
+          "chips"
         </CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search "electronics"
+          "electronics"
         </CustomText>
         <CustomText variant="h6" fontFamily={Fonts.Medium}>
-          Search "lovely desires"
+          "lovely desires"
         </CustomText>
       </RollingBar>
       <View style={styles.divider} />
@@ -52,10 +58,10 @@ const styles = StyleSheet.create({
     borderColor: Colors.border,
     marginTop: 15,
     overflow: 'hidden',
-    marginHorizontal:10,
+    marginHorizontal: 10,
     paddingHorizontal: 10,
   },
-  textContainer: { paddingLeft: 10, width: '90%', height: 50 },
+  textContainer: { paddingLeft: 5, width: '90%', height: 50 },
   divider: {
     width: 1,
     height: 24,
